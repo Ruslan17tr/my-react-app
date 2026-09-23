@@ -1,0 +1,27 @@
+.register-form {
+  margin: 0 0 24px;
+}
+
+.register-submit {
+  background-color: #67A5EB;
+  font-size: 18px;
+  line-height: 24px;
+  border-radius: 28px;
+  color: #FFFFFF;
+  border: none;
+  padding: 16px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.register-switch {
+  color: #000000;
+  background-color: transparent;
+  border: none;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 24px;
+  cursor: pointer;
+}

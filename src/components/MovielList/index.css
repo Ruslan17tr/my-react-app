@@ -1,0 +1,31 @@
+.genre-movies__list {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    position: relative;
+    list-style-type: none;
+    counter-reset: item;
+    gap: 64px 40px;
+        @media (max-width: 1024px) {
+            grid-template-columns: repeat(3, 1fr);
+    }
+        @media (max-width: 768px) {
+            grid-template-columns: repeat(2, 1fr);
+    }
+            @media (max-width: 608px) {
+            grid-template-columns: 1fr;
+    }
+}
+
+.genre-movies__button {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #FFFFFF;
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 56px;
+    margin: 0 0 64px;
+}

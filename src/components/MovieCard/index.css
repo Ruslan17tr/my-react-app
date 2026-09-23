@@ -1,0 +1,51 @@
+.about-movie {
+  padding: 40px 0 120px;
+}
+
+.about-movie__title {
+  text-align: start;
+  margin: 0 0 64px;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 48px;
+}
+
+.about-movie__content {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 8px 0;
+}
+
+.about-movie__row {
+  display: contents;
+}
+
+dt {
+  font-weight: 400;
+  color: #FFFFFF;
+  font-size: 18px;
+  line-height: 24px;
+  padding: 0;
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
+
+dt::after {
+  content: '';
+  flex: 1;
+  border-bottom: 2px dashed #ccc;
+  height: 1px;
+  min-width: 20px;
+  opacity: 0.5;
+}
+
+dd {
+  margin: 0;
+  font-weight: 500;
+  color: #FFFFFF;
+  font-size: 18px;
+  line-height: 24px;
+  padding: 0px 8px;
+  text-align: start;
+}

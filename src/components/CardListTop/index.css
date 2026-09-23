@@ -1,0 +1,78 @@
+.top-movies {
+  padding: 40px 0 120px;
+
+  @media (max-width: 376px) {
+    padding: 32px 0;
+  }
+}
+
+
+.top-movies__title {
+  font-size: 40px;
+  line-height: 48px;
+  margin: 0 0 64px;
+  padding: 0;
+  text-align: start;
+  color: #FFFFFF;
+
+  @media (max-width: 7360px) {
+    font-size: 24px;
+    line-height: 32px;
+    margin: 0;
+  }
+}
+
+.top-movies__list {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  position: relative;
+  list-style-type: none;
+  counter-reset: item;
+  gap: 64px 40px;
+
+
+  @media (max-width: 730px) {
+    gap: 40px;
+    display: flex;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    padding: 40px 0 32px;
+  }
+}
+
+.top-movies__item {
+  position: relative;
+  max-width: 224px;
+  max-height: 336px;
+  border-radius: 16px;
+
+  @media (max-width: 730px) {
+    flex: 0 0 auto;
+  }
+}
+
+.top-movies__item::before {
+  position: absolute;
+  content: counter(item) "";
+  counter-increment: item;
+  top: -4px;
+  left: -12px;
+  font-size: 24px;
+  line-height: 32px;
+  padding: 8px 24px;
+  background-color: #fff;
+  border-radius: 50%;
+  color: #6A5DC2;
+  z-index: 1;
+  transition: color 0.3s ease-in-out, background 0.3s ease-in-out;
+}
+
+.top-movies__item:hover .card-top__img {
+  scale: 1.1;
+}
+
+.top-movies__item:hover::before {
+  background-color: #6A5DC2;
+  color: #fff;
+}

@@ -1,0 +1,86 @@
+.login-form {
+  margin: 0 0 24px;
+}
+
+
+.custom-input {
+  position: relative;
+  display: flex;
+  max-width: 340px;
+  height: 56px;
+  margin: 0 0 12px;
+
+       @media (max-width: 376px) {
+        width: 100%;
+    }
+}
+
+.custom-input__wrapper{
+    width: 100%;
+}
+
+.custom-input:last-of-type {
+  margin-bottom: 24px;
+}
+
+.custom-input__icon {
+  position:absolute;
+  top: 50%;
+  transform:translateY(-50%);
+  left: 16px;
+  color: #00000066;
+  pointer-events: none;
+  transition: color 0.3s ease;
+}
+
+.custom-input__field {
+  width: 100%;
+  height: 100%;
+  border: 1px solid  #00000066;
+  border-radius: 8px;
+  font-size: 16px;
+  padding: 16px 16px 16px 52px;
+  background-color: transparent;
+  transition: border-color 0.2s ease;
+  color: #000000;
+}
+
+.custom-input__field::placeholder {
+  color:  #00000066;
+  opacity: 1;
+}
+
+
+.custom-input__field:hover {
+  border-color: #67A5EB;
+}
+
+.custom-input__field:focus {
+  border-color: #67A5EB;
+}
+
+.custom-input__field:focus-visible {
+  outline: 1px solid #67A5EB;
+}
+
+.custom-input:hover .custom-input__icon {
+  color: #67A5EB;
+}
+
+.custom-input__field:focus-visible  + .custom-input__icon {
+  color: #67A5EB;
+}
+
+.login-button {
+    background-color:#67A5EB;
+    font-size: 18px;
+    line-height: 24px;
+    border-radius:28px;
+    color:#FFFFFF;
+    border:none;
+    padding:16px;
+    width:100%;
+    display:flex;
+    justify-content:center;
+    cursor:pointer;
+}

@@ -1,0 +1,145 @@
+.header {
+    padding: 24px 0;
+    width: 100%;
+    margin: 0;
+
+    @media (max-width: 376px) {
+        padding: 16px 0;
+    }
+}
+
+.header-menu {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+
+    @media (max-width: 376px) {
+        display: flex;
+        gap: 20px;
+    }
+}
+
+
+.header-menu__logo {
+    @media (max-width: 376px) {
+        width: 80px;
+        height: 18px;
+        flex: 1;
+    }
+}
+
+
+.header-menu__logo-icon {
+    width: 143px;
+    height: 32px;
+    display: flex;
+
+    @media (max-width: 476px) {
+        width: 80px;
+        height: 18px;
+    }
+}
+
+.header-menu__link {
+    font-size: 24px;
+    line-height: 32px;
+    text-decoration: none;
+    color: #fff;
+    transition: color 0.3s ease;
+    padding: 8px 0;
+}
+
+.header__search-mobile {
+    display: none;
+    border: none;
+    background: transparent;
+
+    @media (max-width: 806px) {
+        display: flex;
+    }
+}
+
+.header-menu__link-text {
+    @media (max-width: 610px) {
+        display: none;
+    }
+}
+
+.header-menu__link-icon {
+    display: none;
+
+    @media (max-width: 610px) {
+        display: flex;
+    }
+}
+
+.active {
+    border-bottom: 1.5px solid #DC5DFC;
+}
+
+.header-menu__link:hover {
+    color: #B4A9FF;
+}
+
+
+.header-menu__center {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    flex: 1;
+    min-width: 0;
+    justify-content: center;
+    grid-template-columns: auto  auto 1fr;
+
+
+    @media (max-width: 476px) {
+        gap: 20px;
+        flex: auto;
+    }
+
+    @media (max-width: 376px) {
+        gap: 20px;
+        flex: auto;
+    }
+}
+
+.header__login-btn {
+    color: #ffffff;
+    text-decoration: none;
+
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+    font-size: 24px;
+    line-height: 32px;
+    background-color: transparent;
+    border: none;
+    font-weight: normal;
+    display: flex;
+}
+
+.header__login-text {
+    @media (max-width: 1297px) {
+        display: none;
+    }
+}
+
+.header__login-btn:hover {
+    opacity: 0.8;
+}
+
+
+.header__user-name {
+    @media (max-width: 1297px) {
+        display: none;
+    }
+}
+
+.header__user-icon {
+    display: none;
+
+    @media (max-width: 1297px) {
+        display: flex;
+    }
+}

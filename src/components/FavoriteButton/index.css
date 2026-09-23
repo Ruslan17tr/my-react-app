@@ -1,0 +1,12 @@
+.btn-circle {
+    width: 68px;
+    height: 56px;
+    padding: 0;
+    border-radius: 28px;
+    background-color: #3a3a3a;
+    color: #ffffff;
+}
+
+.like--active use {
+    fill: #8d3636;
+}

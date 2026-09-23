@@ -1,0 +1,126 @@
+.profile{
+    padding: 64px 0 0 0;
+}
+
+.profile__title {
+    text-align: left;
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 56px;
+    margin: 0 0 64px;
+    pointer-events: none;
+}
+
+.profile__nav {
+    display: flex;
+    gap:64px;
+    justify-content: flex-start;
+}
+
+.profile__menu-link {
+    font-size: 24px;
+    line-height: 32px;
+    text-decoration: none;
+    color: #fff;
+    transition: color 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap:8px;
+    margin: 0 0 76px;
+}
+
+
+.profile__menu-link:hover {
+   color:#B4A9FF;
+}
+
+.favorite-page__list {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    position: relative;
+    list-style-type: none;
+    gap: 64px 40px
+}
+
+.favorite-page__item {
+    position: relative;
+}
+
+.btn-circle--delete {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 48px;
+    height: 48px;
+    border: none;
+    background-color: transparent;
+    font-size: 20px;
+    cursor: pointer;
+    color:#000000;
+    background-color: #fff;
+    padding: 12px;
+    display: flex;
+    border-radius: 24px;
+    align-items: center;
+    justify-content: center;
+    transform:translate(50%, -50%);
+    opacity: 0;
+    transition: opacity, 0.3s ease-in;
+}
+
+.favorite-page__item:hover .btn-circle--delete {
+    opacity: 1;
+    display: block;
+}
+
+.favorite-page__item:hover .card-top__img {
+    scale:1.1;
+}
+
+
+.setting-page {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap:40px;
+    margin: 0 0 64px;
+}
+
+.setting-page__user {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+
+.setting-page__user-initials {
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 32px;
+    display: flex;
+    width: 60px;
+    height: 60px;
+    border-radius: 30px;
+    background-color: #FFFFFF80;
+    align-items: center;
+    justify-content: center;
+    color: #FFFFFF;
+}
+
+.setting-page__content {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 4px;
+    color: #FFFFFF;
+}
+
+.setting-page__info {
+font-size: 18px;
+line-height: 24px;
+}
+
+.setting-page__text {
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 32px;
+}
