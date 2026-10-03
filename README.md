@@ -1,32 +1,107 @@
-# React + TypeScript + Vite
+# Кино-поиск (React + TypeScript + Vite)
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+SPA-приложение для поиска фильмов, просмотра деталей, работы с избранным и профилем пользователя. Данные приходят с внешнего API, состояние сервера управляется через TanStack Query, роутинг — React Router.
 
-Currently, two official plugins are available:
+## 🚀 Стек
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **React 19** — UI
+- **TypeScript** — типизация
+- **Vite** — сборка и dev-сервер
+- **React Router 7** — маршрутизация
+- **TanStack Query 5** — серверное состояние (кеш, ретраи, мутации)
+- **Axios** — HTTP-клиент
+- **Oxlint** — линтер
+- **CSS Modules / обычный CSS** — стили
 
-## React Compiler
+## 📁 Структура проекта
+src/
+├── api/ # HTTP-запросы (Movies, User, Favorites, queryClient)
+├── components/ # Переиспользуемые компоненты
+│ ├── CardListTop/ # Топ-10 фильмов
+│ ├── CardTop/ # Карточка фильма
+│ ├── CustomInput/ # Инпут с иконкой и ошибкой
+│ ├── FavoriteButton/ # Кнопка «В избранное»
+│ ├── Footer/
+│ ├── GenreCard/ # Карточка жанра
+│ ├── GenreList/ # Список жанров
+│ ├── Header/ # Шапка с поиском и профилем
+│ ├── HeroSection/ # Главный баннер фильма
+│ ├── Layout/ # Общий лейаут
+│ ├── Loader/ # Спиннер
+│ ├── LoginForm/ # Форма входа
+│ ├── ModalWindow/ # Модалка
+│ ├── MovieList/ # Список фильмов по жанру
+│ ├── RegisterForm/ # Форма регистрации
+│ ├── RegisterConfirm/# Подтверждение регистрации
+│ ├── SearchBar/ # Поиск с debounce и dropdown
+│ └── SearchResult/ # Результат поиска
+├── hooks/ # Кастомные хуки
+│ ├── useFavorite.ts
+│ ├── useMovies.ts
+│ └── useProfile.ts
+├── models/ # Типы (Movie, User, Genre)
+├── pages/ # Страницы
+│ ├── MainPage/
+│ ├── MoviePage/
+│ ├── GenrePage/
+│ ├── GenreMoviePage/
+│ └── Profile/
+│ ├── Profile.tsx
+│ ├── FavoritePage.tsx
+│ └── SettingsPage.tsx
+├── App.tsx
+├── main.tsx
+└── index.css
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-## Expanding the Oxlint configuration
+## 🧩 Функциональность
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
+### Главная страница
+- Случайный фильм в hero-секции с кнопкой обновления
+- Кнопки «Трейлер», «О фильме», «В избранное»
+- Топ-10 фильмов с нумерацией и горизонтальным скроллом на мобилке
 
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
-```
+### Поиск
+- Debounce 300 мс
+- Выпадающий список до 5 результатов
+- Синхронизация с URL (`?searchTitle=...`)
+- Состояния: загрузка, результаты, «ничего не найдено»
+- Мобильная версия: открывается по кнопке, оверлей, закрытие по клику вне
+- Кнопка сброса
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+### Фильмы
+- Страница фильма: hero + блок «О фильме»
+- Список фильмов по жанру с кнопкой «Назад»
+- Добавление/удаление из избранного (с проверкой авторизации)
+
+### Профиль
+- Вкладки: «Избранные фильмы», «Настройка аккаунта»
+- Отображение имени, email, инициалов
+- Выход из аккаунта
+
+### Авторизация
+- Модалка с тремя шагами: вход → регистрация → подтверждение
+- Валидация форм (email, пароль, подтверждение пароля)
+- Обработка ошибок
+
+## 🛠 Установка и запуск
+
+```bash
+# Клонировать репозиторий
+git clone https://github.com/Ruslan17tr/my-react-app.git
+cd my-react-app
+
+# Установить зависимости
+npm install
+
+# Запустить dev-сервер
+npm run dev
+
+# Собрать production-версию
+npm run build
+
+# Проверить линтером
+npm run lint
+
+# Предпросмотр собранной версии
+npm run preview
