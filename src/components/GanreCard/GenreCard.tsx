@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom"
 import './index.css'
+import React from "react";
 
 const genreImages: Record<string, string> = {
   'action': '/genres/action.png',
@@ -52,7 +53,7 @@ export const GenreCard: React.FC<{ genre: string }> = ({ genre }) => {
 
   return (
       <Link to={`/movie?genre=${genre}`} className="card-genre__link">
-        <img className="card-genre__img" src={genreImages[genre] || '/default.jpg'} alt={`Постер фильма ${genre}`} />
+        <img className="card-genre__img" src={genreImages[genre] || '/default.jpg'} alt={`Жанр ${genre}`} />
         <span className='card-genre__name'>{genreNames[genre]}</span>
       </Link>
   )

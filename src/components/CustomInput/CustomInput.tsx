@@ -19,7 +19,6 @@ export const CustomInput: FC<IInputProps> = ({
   placeholder,
   required = false,
   disabled,
-  className = '',
   ...props
 }) => {
   return (

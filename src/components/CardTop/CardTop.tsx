@@ -1,6 +1,7 @@
 import type { IMovie } from '../../models/movies';
 import './index.css';
 import { Link, } from "react-router-dom";
+import React from "react";
 
 
 export const CardTop: React.FC<{ movie: IMovie }> = ({ movie }) => {
