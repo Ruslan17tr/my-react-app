@@ -13,47 +13,6 @@ SPA-приложение для поиска фильмов, просмотра 
 - **Oxlint** — линтер
 - **CSS Modules / обычный CSS** — стили
 
-## 📁 Структура проекта
-src/
-├── api/ # HTTP-запросы (Movies, User, Favorites, queryClient)
-├── components/ # Переиспользуемые компоненты
-│ ├── CardListTop/ # Топ-10 фильмов
-│ ├── CardTop/ # Карточка фильма
-│ ├── CustomInput/ # Инпут с иконкой и ошибкой
-│ ├── FavoriteButton/ # Кнопка «В избранное»
-│ ├── Footer/
-│ ├── GenreCard/ # Карточка жанра
-│ ├── GenreList/ # Список жанров
-│ ├── Header/ # Шапка с поиском и профилем
-│ ├── HeroSection/ # Главный баннер фильма
-│ ├── Layout/ # Общий лейаут
-│ ├── Loader/ # Спиннер
-│ ├── LoginForm/ # Форма входа
-│ ├── ModalWindow/ # Модалка
-│ ├── MovieList/ # Список фильмов по жанру
-│ ├── RegisterForm/ # Форма регистрации
-│ ├── RegisterConfirm/# Подтверждение регистрации
-│ ├── SearchBar/ # Поиск с debounce и dropdown
-│ └── SearchResult/ # Результат поиска
-├── hooks/ # Кастомные хуки
-│ ├── useFavorite.ts
-│ ├── useMovies.ts
-│ └── useProfile.ts
-├── models/ # Типы (Movie, User, Genre)
-├── pages/ # Страницы
-│ ├── MainPage/
-│ ├── MoviePage/
-│ ├── GenrePage/
-│ ├── GenreMoviePage/
-│ └── Profile/
-│ ├── Profile.tsx
-│ ├── FavoritePage.tsx
-│ └── SettingsPage.tsx
-├── App.tsx
-├── main.tsx
-└── index.css
-
-
 ## 🧩 Функциональность
 
 ### Главная страница
