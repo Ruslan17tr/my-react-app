@@ -16,7 +16,7 @@ export const AboutMovie: React.FC<{ movie: IMovie }> = ({ movie }) => {
         </div>
         <div className="about-movie__row">
           <dt>Выручка</dt>
-          <dd>{movie.awardsSummary}</dd>
+          <dd>{movie.revenue}</dd>
         </div>
         <div className="about-movie__row">
           <dt>Режиссёр</dt>
@@ -28,11 +28,11 @@ export const AboutMovie: React.FC<{ movie: IMovie }> = ({ movie }) => {
         </div>
         <div className="about-movie__row">
           <dt>Награды</dt>
-          <dd>{movie.revenue}</dd>
+          <dd>{movie.awardsSummary}</dd>
         </div>
         <div className="about-movie__row">
           <dt>Рейтинг</dt>
-          <dd>{movie.awardsSummary}</dd>
+          <dd>{movie.tmdbRating}</dd>
         </div>
       </dl>
     </div>

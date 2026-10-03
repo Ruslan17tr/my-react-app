@@ -22,6 +22,14 @@
   color: inherit;
 }
 
+.card-genre__link:hover .card-genre__img {
+  scale: 1.1;
+}
+
+.card-genre__link:hover .card-genre__name {
+  color: #B4A9FF;
+}
+
 .card-genre__img {
   width: 100%;
   min-height: 220px;

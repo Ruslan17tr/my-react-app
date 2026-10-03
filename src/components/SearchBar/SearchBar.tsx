@@ -6,54 +6,51 @@ import type { IMovie } from '../../models/movies';
 import { useSearchParams } from "react-router-dom";
 import { Loader } from "../Loader/Loader";
 
-interface MobileModalProps {
+interface SearchBarProps  {
   isOpenMobile: boolean;
   onClose: () => void;
 }
 
-export const SearchBar = ({ isOpenMobile, onClose }: MobileModalProps) => {
+export const SearchBar = ({ isOpenMobile, onClose }: SearchBarProps ) => {
   const [results, setResults] = useState<IMovie[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [searchParams, setSearchParams] = useSearchParams();
-  const [hasSearched, setHasSearched] = useState(false);
-
   const wrapperRef = useRef<HTMLDivElement>(null);
   const debounceTimer = useRef<number | null>(null);
-
   const searchQuery = searchParams.get('searchTitle') || '';
-
-
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (wrapperRef.current && !wrapperRef.current.contains(event.target as Node)) {
         setIsOpen(false);
+        if (isOpenMobile) onClose?.();
       }
     };
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, []);
+  }, [isOpenMobile, onClose]);
 
   useEffect(() => {
     if (!searchQuery.trim()) {
       setResults([]);
       setIsOpen(false);
-      setHasSearched(false);
+      setIsLoading(false);
       return;
     }
     if (debounceTimer.current) clearTimeout(debounceTimer.current);
+
+    setIsLoading(true);
+    setIsOpen(true);
+    setResults([]);
+
     debounceTimer.current = setTimeout(async () => {
       try {
-        setIsLoading(true);
         const data = await fetchTitleMovies(searchQuery);
         setResults(data.slice(0, 5));
-        setIsOpen(true);
-        setHasSearched(true);
       } catch (error) {
         console.error('Ошибка поиска:', error);
         setResults([]);
-        setHasSearched(true);
       } finally {
         setIsLoading(false);
       }
@@ -73,23 +70,28 @@ export const SearchBar = ({ isOpenMobile, onClose }: MobileModalProps) => {
     } else {
       newParams.delete('searchTitle');
     }
-    setSearchParams(newParams);
+    setSearchParams(newParams , { replace: true });
   }
 
   const handleResetSearch = () => {
     if (debounceTimer.current) clearTimeout(debounceTimer.current);
     setResults([]);
     setIsOpen(false);
-    setHasSearched(false);
+    setIsLoading(false);
     const newParams = new URLSearchParams(searchParams);
     newParams.delete('searchTitle');
-    setSearchParams(newParams);
+    setSearchParams(newParams, { replace: true });
   }
+
+  const handleSelect = () => {
+    setIsOpen(false);
+    if (isOpenMobile) onClose?.();
+  };
 
   return (
     <>
       {isOpenMobile && (
-        <div className="search-bar__overlay" onClick={onClose} />
+        <div className="search-bar__overlay" />
       )}
 
       <div className={`search-bar ${isOpenMobile ? 'search-bar--open' : ''}`} ref={wrapperRef}>
@@ -106,7 +108,7 @@ export const SearchBar = ({ isOpenMobile, onClose }: MobileModalProps) => {
             value={searchQuery}
             onChange={handleSearchChange}
             onFocus={() => {
-              if (results.length > 0) setIsOpen(true);
+              if (searchQuery.trim()) setIsOpen(true);
             }}
           />
           {searchQuery.length > 0 && (
@@ -126,13 +128,13 @@ export const SearchBar = ({ isOpenMobile, onClose }: MobileModalProps) => {
                 key={movie.id}
                 className="search-result__item"
               >
-                <SearchResult movie={movie} onSelect={() => setIsOpen(false)} />
+                <SearchResult movie={movie} onSelect={handleSelect} />
               </li>
             ))}
           </ul>
         )}
 
-        {isOpen && hasSearched && !isLoading && results.length === 0 && (
+        {isOpen && !isLoading && results.length === 0 && (
           <ul className="search-bar__results">
             <li className="search-bar__results-item search-bar__results-item--empty">
               <span>😕 Ничего не найдено</span>

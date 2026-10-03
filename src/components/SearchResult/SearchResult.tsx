@@ -28,7 +28,7 @@ export const SearchResult = ({ movie, onSelect }: SearchResultProps) => {
 
   return (
     <Link className="search-result__link" to={`/movie/${movie.id}`} onClick={onSelect} >
-      <img className="search-result__img" src={movie.posterUrl} alt={movie.title} />
+      <img className="search-result__img" src={movie.posterUrl} alt={movie.title ?? 'Фильм'} />
       <div className="search-result__info">
         <div className="search-result__info-top">
           <span className="search-result__rating" style={{ backgroundColor: ratingColor }}>★

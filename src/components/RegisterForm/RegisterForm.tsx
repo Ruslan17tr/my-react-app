@@ -27,18 +27,15 @@ export const RegisterForm = ({ onSuccess, onSwitchToConfirm }: RegisterFormProps
         setSurname('');
         setPassword('');
         setPasswordConfirm('');
-
         onSuccess?.();
       }
-      onSwitchToConfirm
+      onSwitchToConfirm?.();    
     },
   }, queryClient);
 
 
-  const handleToSubmut: React.SubmitEventHandler<HTMLFormElement> = (event) => {
+  const handleSubmit: React.SubmitEventHandler<HTMLFormElement> = (event) => {
     event.preventDefault();
-
-
     registrationMutation.mutate({ email, password, name, surname, });
   }
   const isFormValid =
@@ -50,7 +47,7 @@ export const RegisterForm = ({ onSuccess, onSwitchToConfirm }: RegisterFormProps
 
 
   return (
-    <form className="register-form" onSubmit={handleToSubmut}>
+    <form className="register-form" onSubmit={handleSubmit}>
       <CustomInput
         type="email"
         iconId="email-icon"
@@ -91,12 +88,6 @@ export const RegisterForm = ({ onSuccess, onSwitchToConfirm }: RegisterFormProps
         onChange={(event) => setPasswordConfirm(event.target.value)}
         value={passwordConfirm}
       />
-
-      {registrationMutation.error && (
-        <span className="register-error">
-          {registrationMutation.error.message}
-        </span>
-      )}
 
       {registrationMutation.error && (
         <span className="register-error">

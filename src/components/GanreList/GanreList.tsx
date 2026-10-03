@@ -2,11 +2,11 @@ import type { GenreListType } from '../../models/genre';
 import './index.css';
 import { GenreCard } from '../GanreCard/GenreCard';
 
-interface IGenreList {
+interface GenreListProps  {
     genres: GenreListType;
 }
 
-export const GenreList= ({genres}:IGenreList)=> {
+export const GenreList= ({genres}:GenreListProps )=> {
 
     return (
         <section className='genre-movies'>

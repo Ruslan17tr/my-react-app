@@ -7,12 +7,11 @@ import { CardTop } from '../CardTop/CardTop';
 
 
 export const CardListTop: FC = () => {
-  const [movie, setMovie] = useState<IMovie[]>([]);
+  const [movies, setMovies] = useState<IMovie[]>([]);
 
   const getData = async (): Promise<void> => {
     const data = await fetchTopMovies();
-    console.log('data:', data);
-    setMovie(data);
+    setMovies(data);
   };
 
   useEffect(() => {
@@ -23,7 +22,7 @@ export const CardListTop: FC = () => {
     <section className='top-movies'>
       <h2 className="top-movies__title">Топ 10 фильмов</h2>
       <ol className="top-movies__list">
-        {movie.map((movie) => (
+        {movies.map((movie) => (
           <li key={movie.id} className="top-movies__item">
             <CardTop movie={movie} />
           </li>

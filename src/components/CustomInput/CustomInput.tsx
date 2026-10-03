@@ -10,6 +10,7 @@ interface IInputProps extends InputHTMLAttributes<HTMLInputElement> {
 
 export const CustomInput: FC<IInputProps> = ({ 
   type = 'text',
+  name,
   iconId,
   error,
   isLoading = false,
@@ -23,13 +24,10 @@ export const CustomInput: FC<IInputProps> = ({
 }) => {
   return (
     <div className='custom-input'>
-      
-        
-        
         <input
           className="custom-input__field"
           type={type}
-          name={type}
+          name={name}
           value={value}
           onChange={onChange}
           placeholder={placeholder}
@@ -42,8 +40,6 @@ export const CustomInput: FC<IInputProps> = ({
             <use href={`/sprite.svg#${iconId}`} />
           </svg>
         )}
-
-      
       {error && (
         <span className="custom-input__error">{error}</span>
       )}

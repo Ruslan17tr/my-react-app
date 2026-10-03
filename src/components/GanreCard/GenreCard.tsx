@@ -2,26 +2,26 @@ import { Link } from "react-router-dom"
 import './index.css'
 
 const genreImages: Record<string, string> = {
-  'action': '../../../public/genres/action.png',
-  'comedy': '../../../public/genres/comedy.png',
-  'drama': '../../../public/genres/drama.png',
-  'horror': '../../../public/genres/horror.jpg',
-  'scifi': '../../../public/genres/scifi.png',
-  'fantasy': '../../../public/genres/fantasy.jpg',
-  'romance': '../../../public/genres/romance.jpg',
-  'thriller': '../../../public/genres/thriller.png',
-  'adventure': '../../../public/genres/adventure.png',
-  'animation': '../../../public/genres/animation.jpg',
-  'crime': '../../../public/genres/crime.png',
-  'documentary': '../../../public/genres/documentary.jpg',
-  'family': '../../../public/genres/family.png',
-  'history': '../../../public/genres/history.png',
-  'music': '../../../public/genres/music.jpg',
-  'mystery': '../../../public/genres/mystery.jpeg',
-  'stand-up': '../../../public/genres/stand-up.png',
-  'tv-movie': '../../../public/genres/tv-movie.png',
-  'war': '../../../public/genres/war.jpg',
-  'western': '../../../public/genres/western.jpg',
+  'action': '/genres/action.png',
+  'comedy': '/genres/comedy.png',
+  'drama': '/genres/drama.png',
+  'horror': '/genres/horror.jpg',
+  'scifi': '/genres/scifi.png',
+  'fantasy': '/genres/fantasy.jpg',
+  'romance': '/genres/romance.jpg',
+  'thriller': '/genres/thriller.png',
+  'adventure': '/genres/adventure.png',
+  'animation': '/genres/animation.jpg',
+  'crime': '/genres/crime.png',
+  'documentary': '/genres/documentary.jpg',
+  'family': '/genres/family.png',
+  'history': '/genres/history.png',
+  'music': '/genres/music.jpg',
+  'mystery': '/genres/mystery.jpeg',
+  'stand-up': '/genres/stand-up.png',
+  'tv-movie': '/genres/tv-movie.png',
+  'war': '/genres/war.jpg',
+  'western': '/genres/western.jpg',
 };
 
 export const genreNames: Record<string, string> = {
@@ -51,8 +51,8 @@ export const genreNames: Record<string, string> = {
 export const GenreCard: React.FC<{ genre: string }> = ({ genre }) => {
 
   return (
-      <Link to={`/movie?genre=${genre}`} key={genre} className="card-genre__link">
-        <img className="card-genre__img" src={genreImages[genre] || '../../../public/genres/adventure.png'} alt={`Постер фильма ${genre}`} />
+      <Link to={`/movie?genre=${genre}`} className="card-genre__link">
+        <img className="card-genre__img" src={genreImages[genre] || '/default.jpg'} alt={`Постер фильма ${genre}`} />
         <span className='card-genre__name'>{genreNames[genre]}</span>
       </Link>
   )
